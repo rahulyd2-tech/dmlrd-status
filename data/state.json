@@ -8,8 +8,8 @@
    "issue": null
   },
   "vidyash-com": {
-   "state": "up",
-   "since": "2026-10-06T18:16:27.230Z",
+   "state": "warn",
+   "since": "2026-10-06T21:46:50.616Z",
    "fails": 0,
    "firstFail": null,
    "issue": null
