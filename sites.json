@@ -4,7 +4,7 @@
   "servers": {
     "xtreme2": { "name": "XTREME2 (Pune)", "ip": "223.226.137.97" },
     "github-pages": { "name": "GitHub Pages" },
-    "godaddy": { "name": "GoDaddy Website Builder" }
+    "_note": "dmlrdinternetservices.com (GoDaddy Website Builder) is not listed: GoDaddy cuts connections from GitHub's network, so it can only be checked from XTREME2 (see CR-2026-0024, defect D-02)."
   },
   "groups": [
     { "id": "websites", "name": "Websites" },
@@ -20,7 +20,6 @@
     { "id": "vidyashenergy-in", "name": "vidyashenergy.in", "url": "https://vidyashenergy.in/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
     { "id": "campveerescape-in", "name": "campveerescape.in", "url": "https://campveerescape.in/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
     { "id": "ageofaquariusdevelopers-in", "name": "ageofaquariusdevelopers.in", "url": "https://ageofaquariusdevelopers.in/", "group": "websites", "host": "github-pages", "expect": { "status": [200] } },
-    { "id": "dmlrdinternetservices-com", "name": "dmlrdinternetservices.com", "url": "https://dmlrdinternetservices.com/", "group": "websites", "host": "godaddy", "expect": { "status": [200] } },
 
     { "id": "doomwatcher", "name": "DooMWaTCHeR", "url": "https://watcher.dev.dmlrd.tech/healthz", "group": "platforms", "host": "xtreme2", "expect": { "status": [200] } },
     { "id": "aoa-sign-in", "name": "AOA sign-in", "url": "https://id.aoainfra.com/debug/healthz", "group": "platforms", "host": "xtreme2", "expect": { "status": [200] } },

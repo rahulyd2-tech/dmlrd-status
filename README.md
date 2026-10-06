@@ -26,7 +26,9 @@ XTREME2 also runs its own, more detailed monitor (every minute, including intern
 - Every outage opens a **GitHub issue** labelled `outage` (GitHub emails the owner) and closes it when the site works again.
 - **WhatsApp** (Meta Cloud API template `dmlrd_site_down` / `dmlrd_site_recovered`) is sent only for:
   - the whole of XTREME2 being unreachable (one message, not one per site), and
-  - sites that are not hosted on XTREME2 (GitHub Pages, GoDaddy).
+  - sites that are not hosted on XTREME2 (GitHub Pages).
+
+dmlrdinternetservices.com (GoDaddy Website Builder) is checked only by XTREME2: GoDaddy cuts connections coming from GitHub's network, so an outside check here would always report it down.
   Single-site problems on XTREME2 are alerted by XTREME2's own monitor, so you are not messaged twice.
 
 ## Secrets (repository settings -> Secrets and variables -> Actions)

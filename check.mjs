@@ -76,6 +76,7 @@ async function check(c) {
 const results = Object.fromEntries(await Promise.all(cfg.checks.map(async (c) => [c.id, await check(c)])));
 
 // ---------- state transitions ----------
+for (const k of Object.keys(state.checks)) if (!cfg.checks.some((c) => c.id === k)) delete state.checks[k]; // site removed from sites.json
 const events = [];
 const fmtIST = (d) => new Date(d).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
 const dur = (a, b) => { const m = Math.max(1, Math.round((new Date(b) - new Date(a)) / 60000)); return m < 60 ? `${m} minutes` : m < 2880 ? `${Math.floor(m / 60)} h ${m % 60} min` : `${Math.floor(m / 1440)} days`; };
@@ -128,7 +129,9 @@ async function whatsapp(template, params) {
       body: JSON.stringify({ messaging_product: 'whatsapp', to, type: 'template', template: { name: template, language: { code: 'en' }, components: [{ type: 'body', parameters: params.map((t) => ({ type: 'text', text: String(t).replace(/[\n\t]+/g, ' ').replace(/ {4,}/g, '   ').slice(0, 200) })) }] } }),
     });
     const j = await r.json().catch(() => ({}));
-    out.push(r.ok ? `sent to ...${to.slice(-4)}` : `failed for ...${to.slice(-4)}: ${j?.error?.message || r.status}`);
+    const code = j?.error?.code;
+    const why = [132000, 132001, 132005, 132007, 132012, 132015, 132016].includes(code) ? 'message template not approved by Meta yet' : (j?.error?.message || r.status);
+    out.push(r.ok ? `sent to ...${to.slice(-4)}` : `failed for ...${to.slice(-4)}: ${why}`);
   }
   return { sent: out.some((x) => x.startsWith('sent')), why: out.join('; ') };
 }
@@ -188,7 +191,7 @@ for (const c of cfg.checks) {
 }
 for (const k of Object.keys(daily.checks)) if (!cfg.checks.some((c) => c.id === k)) delete daily.checks[k];
 
-const recent = (await fs.readFile(evPath, 'utf8').catch(() => '')).trim().split('\n').filter(Boolean).slice(-30).map((l) => JSON.parse(l)).map(({ ts, kind, name, since, error }) => ({ ts, kind, name, since, error })).reverse();
+const recent = (await fs.readFile(evPath, 'utf8').catch(() => '')).trim().split('\n').filter(Boolean).slice(-60).map((l) => JSON.parse(l)).filter((e) => e.target === 'xtreme2' || cfg.checks.some((c) => c.id === e.target)).slice(-30).map(({ ts, kind, name, since, error }) => ({ ts, kind, name, since, error })).reverse();
 const latest = {
   checkedAt: iso, run: RUN_URL, statusPage: page,
   overall: serverDown || cfg.checks.some((c) => state.checks[c.id].state === 'down') ? 'down' : cfg.checks.some((c) => results[c.id].level === 'warn') ? 'warn' : 'up',
