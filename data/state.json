@@ -56,13 +56,6 @@
    "firstFail": null,
    "issue": null
   },
-  "dmlrdinternetservices-com": {
-   "state": "down",
-   "since": "2026-10-06T18:16:27.230Z",
-   "fails": 2,
-   "firstFail": "2026-10-06T18:16:27.230Z",
-   "issue": 1
-  },
   "doomwatcher": {
    "state": "up",
    "since": "2026-10-06T18:16:27.230Z",
