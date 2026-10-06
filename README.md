@@ -40,4 +40,4 @@ node -e "const c=require('crypto');let p='0'.repeat(64);for(const l of require('
 ```
 
 ## Changing what is monitored
-Edit `sites.json` under a CR, test with `node check.mjs --dry-run` (no issues or messages are sent), then commit.
+Edit `sites.json` under a CR and test with `node check.mjs --dry-run` (no issues or messages are sent). After committing, run the **Health check** workflow by hand twice and confirm the new site passes **from GitHub's network** - some hosts (e.g. GoDaddy Website Builder) block it (RCA-2026-005, PA1).
