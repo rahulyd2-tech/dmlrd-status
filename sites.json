@@ -1,0 +1,46 @@
+{
+  "_comment": "CR-2026-0024. Public DMLRD Group sites checked from OUTSIDE our servers (GitHub Actions). Change this file only through a CR. host: where the site runs. expect.status: HTTP answers that count as working (holding pages answer 403/503 on purpose).",
+  "statusPage": "https://status.dmlrd.tech",
+  "servers": {
+    "xtreme2": { "name": "XTREME2 (Pune)", "ip": "223.226.137.97" },
+    "github-pages": { "name": "GitHub Pages" },
+    "godaddy": { "name": "GoDaddy Website Builder" }
+  },
+  "groups": [
+    { "id": "websites", "name": "Websites" },
+    { "id": "platforms", "name": "Apps and platforms" },
+    { "id": "rdrctr", "name": "RDRCTR (not launched yet)" }
+  ],
+  "checks": [
+    { "id": "pune-ai", "name": "pune.ai", "url": "https://pune.ai/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "vidyash-com", "name": "vidyash.com", "url": "https://vidyash.com/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "vidyashglobalholdings-com", "name": "vidyashglobalholdings.com", "url": "https://vidyashglobalholdings.com/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "vidyashagritech-in", "name": "vidyashagritech.in", "url": "https://vidyashagritech.in/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "vidyashaerospace-in", "name": "vidyashaerospace.in", "url": "https://vidyashaerospace.in/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "vidyashenergy-in", "name": "vidyashenergy.in", "url": "https://vidyashenergy.in/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "campveerescape-in", "name": "campveerescape.in", "url": "https://campveerescape.in/", "group": "websites", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "ageofaquariusdevelopers-in", "name": "ageofaquariusdevelopers.in", "url": "https://ageofaquariusdevelopers.in/", "group": "websites", "host": "github-pages", "expect": { "status": [200] } },
+    { "id": "dmlrdinternetservices-com", "name": "dmlrdinternetservices.com", "url": "https://dmlrdinternetservices.com/", "group": "websites", "host": "godaddy", "expect": { "status": [200] } },
+
+    { "id": "doomwatcher", "name": "DooMWaTCHeR", "url": "https://watcher.dev.dmlrd.tech/healthz", "group": "platforms", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "aoa-sign-in", "name": "AOA sign-in", "url": "https://id.aoainfra.com/debug/healthz", "group": "platforms", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "aoa-site-admin", "name": "AOA site admin", "url": "https://admin.aoainfra.com/", "group": "platforms", "host": "xtreme2", "expect": { "status": [303] } },
+    { "id": "aoa-site-builder", "name": "AOA site builder", "url": "https://builder.aoainfra.com/", "group": "platforms", "host": "xtreme2", "expect": { "status": [302] } },
+    { "id": "aoa-site-explorer", "name": "AOA site explorer", "url": "https://explorer.aoainfra.com/", "group": "platforms", "host": "xtreme2", "expect": { "status": [302] } },
+    { "id": "aoa-dev", "name": "AOA dev portal", "url": "https://dev.aoainfra.com/", "group": "platforms", "host": "xtreme2", "expect": { "status": [301] } },
+    { "id": "site-survey-mapper", "name": "Site survey mapper", "url": "https://mapper.aoainfra.com/", "group": "platforms", "host": "xtreme2", "expect": { "status": [200] } },
+
+    { "id": "ryd-gr", "name": "ryd.gr", "url": "https://ryd.gr/", "group": "rdrctr", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "rdrctr-dashboard", "name": "RDRCTR dashboard", "url": "https://rdrctr.dmlrd.tech/", "group": "rdrctr", "host": "xtreme2", "expect": { "status": [200] } },
+    { "id": "rdrctr-api", "name": "RDRCTR API", "url": "https://api.rdrctr.dmlrd.tech/", "group": "rdrctr", "host": "xtreme2", "expect": { "status": [503], "bodyIncludes": "not live yet" } },
+    { "id": "cdn-ryd-gr", "name": "cdn.ryd.gr", "url": "https://cdn.ryd.gr/", "group": "rdrctr", "host": "xtreme2", "expect": { "status": [403] } },
+    { "id": "rdrctr-cdn", "name": "RDRCTR private files", "url": "https://cdn.rdrctr.dmlrd.tech/", "group": "rdrctr", "host": "xtreme2", "expect": { "status": [403] } }
+  ],
+  "rules": {
+    "timeoutMs": 15000,
+    "slowMs": 5000,
+    "certWarnDays": 14,
+    "failRunsBeforeAlert": 2,
+    "whatsappFor": "server-wide outages and sites not hosted on XTREME2 (XTREME2 sends its own per-site alerts)"
+  }
+}

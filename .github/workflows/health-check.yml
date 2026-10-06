@@ -1,0 +1,43 @@
+# CR-2026-0024 - outside health check. Runs on GitHub's servers, never on XTREME2.
+# Every result is committed to data/ so the git history is the audit log of every check.
+name: Health check
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # GitHub may start scheduled runs a few minutes late under load
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit results to data/
+  issues: write     # open/close outage issues (GitHub emails the owner)
+
+concurrency:
+  group: health-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - name: Check all sites
+        id: check
+        run: node check.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WA_TOKEN: ${{ secrets.WA_TOKEN }}
+          WA_PHONE_NUMBER_ID: ${{ secrets.WA_PHONE_NUMBER_ID }}
+          WA_TO: ${{ secrets.WA_TO }}
+      - name: Save results
+        run: |
+          git config user.name  "dmlrd-status-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet && exit 0
+          git commit -q -m "check: ${{ steps.check.outputs.summary }}"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && exit 0; sleep 5; done
+          exit 1

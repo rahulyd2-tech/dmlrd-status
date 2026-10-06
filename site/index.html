@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DMLRD Status</title>
+<meta name="description" content="Live status of DMLRD Group websites and apps, checked from outside our servers every 5 minutes.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2300dec4'/%3E%3Cstop offset='1' stop-color='%23da00ac'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M4 6l8 10-8 10h6l8-10-8-10zM14 6l8 10-8 10h6l8-10-8-10z' fill='url(%23g)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1216; --panel: #161a20; --panel-2: #1b2028; --line: #262c35;
+    --ink: #e4e7eb; --muted: #949ca7; --faint: #5d6570;
+    --up: #3fc9b0; --warn: #d9ad55; --down: #e0707f; --none: #2a3039;
+    --brand: linear-gradient(45deg, #00dec4 0%, #843ea6 55%, #da00ac 100%);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f5f6f8; --panel: #ffffff; --panel-2: #f8f9fb; --line: #e3e6ea;
+      --ink: #23272d; --muted: #5f6873; --faint: #9aa2ac;
+      --up: #1f9e88; --warn: #b78a2c; --down: #c84d5e; --none: #e3e6ea;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 15px/1.5 Montserrat, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+  .strip { height: 4px; background: var(--brand); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 28px 16px 56px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 28px; }
+  .mark { display: flex; align-items: center; gap: 10px; font-family: Jost, Montserrat, sans-serif; letter-spacing: .14em; font-weight: 600; font-size: 15px; text-transform: uppercase; }
+  .mark svg { width: 26px; height: 26px; }
+  .mark small { color: var(--muted); font-weight: 500; letter-spacing: .2em; }
+  .updated { color: var(--muted); font-size: 13px; text-align: right; }
+
+  .hero { display: flex; align-items: center; gap: 18px; padding: 22px 24px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 18px; }
+  .orb { width: 44px; height: 44px; border-radius: 50%; flex: none; display: grid; place-items: center; }
+  .orb::after { content: ""; width: 16px; height: 16px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 6px color-mix(in srgb, currentColor 18%, transparent); }
+  .orb.up { color: var(--up); } .orb.warn { color: var(--warn); } .orb.down { color: var(--down); } .orb.none { color: var(--faint); }
+  .hero h1 { margin: 0; font: 600 22px/1.25 Jost, Montserrat, sans-serif; letter-spacing: .01em; }
+  .hero p { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+  .notice { margin: -6px 0 18px; padding: 10px 14px; border-radius: 10px; font-size: 13.5px; background: color-mix(in srgb, var(--warn) 12%, var(--panel)); border: 1px solid color-mix(in srgb, var(--warn) 35%, var(--line)); }
+
+  .counts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 22px; }
+  .count { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .count b { display: block; font: 600 26px/1.1 Jost, Montserrat, sans-serif; }
+  .count span { color: var(--muted); font-size: 12.5px; }
+  .count.up b { color: var(--up); } .count.warn b { color: var(--warn); } .count.down b { color: var(--down); }
+
+  section.group { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; }
+  .ghead { all: unset; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: 12px; padding: 16px 20px; cursor: pointer; }
+  .ghead:focus-visible { outline: 2px solid var(--up); outline-offset: -2px; border-radius: var(--radius); }
+  .ghead h2 { margin: 0; flex: 1; font: 600 15px/1.3 Montserrat, sans-serif; }
+  .ghead .sum { color: var(--muted); font-size: 13px; }
+  .chev { width: 18px; height: 18px; color: var(--muted); transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  section.group.closed .chev { transform: rotate(-90deg); }
+  .gbody { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .35s cubic-bezier(.2,.7,.2,1), opacity .25s; }
+  section.group.closed .gbody { grid-template-rows: 0fr; opacity: 0; }
+  .gbody > div { overflow: hidden; }
+
+  .row { display: grid; grid-template-columns: 12px minmax(150px, 1.1fr) minmax(0, 2fr) 64px 64px; align-items: center; gap: 14px; padding: 12px 20px; border-top: 1px solid var(--line); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--none); }
+  .dot.up { background: var(--up); } .dot.warn { background: var(--warn); } .dot.down { background: var(--down); } .dot.checking { background: var(--warn); }
+  .name { min-width: 0; }
+  .name b { display: block; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .name i { font-style: normal; font-size: 11.5px; color: var(--faint); letter-spacing: .04em; }
+  .name .prob { display: block; font-size: 12.5px; color: var(--down); margin-top: 2px; }
+  .name .prob.w { color: var(--warn); }
+  .bars { display: flex; gap: 2px; height: 26px; align-items: stretch; min-width: 0; }
+  .bars span { flex: 1; border-radius: 2px; background: var(--none); min-width: 2px; }
+  .bars span.up { background: color-mix(in srgb, var(--up) 70%, transparent); }
+  .bars span.warn { background: color-mix(in srgb, var(--warn) 80%, transparent); }
+  .bars span.down { background: var(--down); }
+  .bars span:hover { outline: 1px solid var(--ink); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; font-size: 13px; color: var(--muted); }
+  .num b { color: var(--ink); font-weight: 500; }
+  .legend { display: flex; justify-content: space-between; color: var(--faint); font-size: 11.5px; padding: 8px 20px 12px; border-top: 1px solid var(--line); }
+
+  .events { list-style: none; margin: 0; padding: 0; }
+  .events li { display: flex; gap: 12px; align-items: baseline; padding: 11px 20px; border-top: 1px solid var(--line); font-size: 13.5px; }
+  .events time { color: var(--muted); flex: none; width: 150px; font-variant-numeric: tabular-nums; }
+  .events .ok { color: var(--up); } .events .bad { color: var(--down); }
+  .empty { padding: 14px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; }
+
+  #tip { position: fixed; pointer-events: none; background: var(--panel-2); border: 1px solid var(--line); color: var(--ink); padding: 6px 9px; border-radius: 8px; font-size: 12px; opacity: 0; transition: opacity .12s; z-index: 5; white-space: nowrap; }
+  footer { margin-top: 28px; color: var(--faint); font-size: 12.5px; text-align: center; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 720px) {
+    .row { grid-template-columns: 12px minmax(0, 1fr) 56px; }
+    .row .bars, .row .num.ms { display: none; }
+    .counts { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .events time { width: 110px; }
+    .hero { padding: 18px; }
+  }
+  @media (min-width: 1600px) { body { font-size: 17px; } .wrap { max-width: 1180px; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="strip"></div>
+<div class="wrap">
+  <header>
+    <div class="mark">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#00dec4"/><stop offset="1" stop-color="#da00ac"/></linearGradient></defs><path d="M4 6l8 10-8 10h6l8-10-8-10zM14 6l8 10-8 10h6l8-10-8-10z" fill="url(#g)"/></svg>
+      DMLRD <small>Status</small>
+    </div>
+    <div class="updated" id="updated">Loading&hellip;</div>
+  </header>
+
+  <div class="hero"><div class="orb none" id="orb"></div><div><h1 id="headline">Checking&hellip;</h1><p id="subline">&nbsp;</p></div></div>
+  <div id="notice"></div>
+  <div class="counts" id="counts"></div>
+  <div id="groups"></div>
+
+  <section class="group closed" id="hist">
+    <button class="ghead" aria-expanded="false"><h2>Recent changes</h2><span class="sum" id="histsum"></span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+    <div class="gbody"><div><ul class="events" id="events"></ul></div></div>
+  </section>
+
+  <footer>Checked from outside our network every 5 minutes &middot; <a id="src" href="https://github.com/rahulyd2-tech/dmlrd-status">how this works</a></footer>
+</div>
+<div id="tip"></div>
+
+<script>
+(() => {
+  const REPO = 'rahulyd2-tech/dmlrd-status';
+  const RAW = `https://raw.githubusercontent.com/${REPO}/main/data/`;
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const IST = (d, opt) => new Date(d).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', ...opt });
+  const ago = (d) => { const m = Math.round((Date.now() - new Date(d)) / 60000); return m < 1 ? 'just now' : m < 60 ? `${m} min ago` : m < 1440 ? `${Math.floor(m / 60)} h ago` : `${Math.floor(m / 1440)} days ago`; };
+  const HOST = { xtreme2: 'XTREME2', 'github-pages': 'GITHUB PAGES', godaddy: 'GODADDY' };
+  const closed = new Set();
+  try { JSON.parse(localStorage.getItem('dmlrd-status-closed') || '[]').forEach((x) => closed.add(x)); } catch {}
+  const saveClosed = () => { try { localStorage.setItem('dmlrd-status-closed', JSON.stringify([...closed])); } catch {} };
+
+  async function load(name) {
+    const bust = Math.floor(Date.now() / 60000);
+    for (const base of [RAW, './data/']) {
+      try { const r = await fetch(`${base}${name}?t=${bust}`, { cache: 'no-store' }); if (r.ok) return await r.json(); } catch {}
+    }
+    throw new Error('no data');
+  }
+
+  function days90() { const out = []; const t = new Date(); for (let i = 89; i >= 0; i--) { const d = new Date(t); d.setUTCDate(t.getUTCDate() - i); out.push(d.toISOString().slice(0, 10)); } return out; }
+
+  function render(latest, daily) {
+    const checks = latest.checks;
+    const n = { up: 0, warn: 0, down: 0 };
+    checks.forEach((c) => { n[c.level === 'down' ? 'down' : c.level === 'up' ? 'up' : 'warn']++; });
+    const staleMin = (Date.now() - new Date(latest.checkedAt)) / 60000;
+
+    let level = latest.overall, head, sub;
+    if (latest.server?.xtreme2 === 'down') { level = 'down'; head = 'Our main server is not reachable'; sub = `All sites hosted on XTREME2 are down since ${IST(latest.server.since, { hour: '2-digit', minute: '2-digit', day: 'numeric', month: 'short', hour12: false })} IST. We have been alerted.`; }
+    else if (n.down) { head = n.down === 1 ? `1 service has a problem` : `${n.down} services have problems`; sub = 'We have been alerted and are looking into it.'; }
+    else if (n.warn) { level = 'warn'; head = 'All services are working'; sub = `${n.warn} need${n.warn === 1 ? 's' : ''} attention soon.`; }
+    else { head = 'All services are working'; sub = `${checks.length} websites and apps checked.`; }
+    $('orb').className = `orb ${level}`; $('headline').textContent = head; $('subline').textContent = sub;
+    $('updated').innerHTML = `Last checked<br><b>${ago(latest.checkedAt)}</b>`;
+    $('updated').title = IST(latest.checkedAt) + ' IST';
+    $('notice').innerHTML = staleMin > 20 ? `<div class="notice">Checks are running late (last one ${ago(latest.checkedAt)}). GitHub sometimes delays scheduled runs; the results below may be out of date.</div>` : '';
+    $('counts').innerHTML = [['up', n.up, 'working'], ['warn', n.warn, 'need attention'], ['down', n.down, 'not working']].map(([k, v, l]) => `<div class="count ${v ? k : ''}"><b>${v}</b><span>${l}</span></div>`).join('');
+
+    const dates = days90();
+    const html = latest.groups.map((g) => {
+      const items = checks.filter((c) => c.group === g.id);
+      if (!items.length) return '';
+      const gdown = items.filter((c) => c.level === 'down').length;
+      const rows = items.map((c) => {
+        const d = daily.checks?.[c.id] || {};
+        let runs = 0, ups = 0;
+        const cells = dates.map((day) => {
+          const v = d[day]; if (!v) return `<span data-t="${day}: no data yet"></span>`;
+          runs += v[0]; ups += v[1];
+          const pct = v[1] / v[0] * 100;
+          const cls = pct >= 99.5 ? (v[3] > v[0] / 2 ? 'warn' : 'up') : pct >= 95 ? 'warn' : 'down';
+          return `<span class="${cls}" data-t="${IST(day + 'T12:00:00Z', { day: 'numeric', month: 'short' })}: ${pct.toFixed(pct === 100 ? 0 : 1)}% working"></span>`;
+        }).join('');
+        const up90 = runs ? (ups / runs * 100) : null;
+        const prob = c.problem ? `<span class="prob ${c.level === 'down' ? '' : 'w'}">${esc(c.problem)}</span>` : '';
+        return `<div class="row"><span class="dot ${c.level}" title="${c.level}"></span>
+          <div class="name"><b title="${esc(c.url)}">${esc(c.name)}</b><i>${HOST[c.host] || ''}</i>${prob}</div>
+          <div class="bars">${cells}</div>
+          <div class="num" title="Working, last 90 days"><b>${up90 === null ? '\u2013' : up90 >= 99.995 ? '100' : up90.toFixed(2)}</b>${up90 === null ? '' : '%'}</div>
+          <div class="num ms" title="Response time now">${c.ms != null && c.level !== 'down' ? `<b>${c.ms}</b> ms` : '\u2013'}</div></div>`;
+      }).join('');
+      const sum = gdown ? `${gdown} of ${items.length} not working` : `${items.length} working`;
+      return `<section class="group ${closed.has(g.id) ? 'closed' : ''}" data-id="${g.id}">
+        <button class="ghead" aria-expanded="${!closed.has(g.id)}"><h2>${esc(g.name)}</h2><span class="sum">${sum}</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l5 5 5-5"/></svg></button>
+        <div class="gbody"><div>${rows}<div class="legend"><span>90 days ago</span><span>Today</span></div></div></div></section>`;
+    }).join('');
+    $('groups').innerHTML = html;
+
+    const ev = latest.recent || [];
+    $('histsum').textContent = ev.length ? `${ev.length} in the log` : 'nothing yet';
+    const label = { down: 'stopped working', recovered: 'working again', 'server-down': 'whole server unreachable', 'server-recovered': 'server reachable again' };
+    $('events').innerHTML = ev.length ? ev.map((e) => `<li><time>${IST(e.ts, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false })}</time><span><b>${esc(e.name)}</b> <span class="${/recovered/.test(e.kind) ? 'ok' : 'bad'}">${label[e.kind] || e.kind}</span>${e.error && !/recovered/.test(e.kind) ? ` \u00b7 ${esc(e.error)}` : ''}</span></li>`).join('') : '<li class="empty">No outages recorded yet.</li>';
+  }
+
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('.ghead'); if (!b) return;
+    const s = b.closest('section'); s.classList.toggle('closed');
+    b.setAttribute('aria-expanded', String(!s.classList.contains('closed')));
+    if (s.dataset.id) { s.classList.contains('closed') ? closed.add(s.dataset.id) : closed.delete(s.dataset.id); saveClosed(); }
+  });
+  const tip = $('tip');
+  document.addEventListener('mouseover', (e) => { const t = e.target.closest('[data-t]'); if (!t) { tip.style.opacity = 0; return; } tip.textContent = t.dataset.t; tip.style.opacity = 1; });
+  document.addEventListener('mousemove', (e) => { tip.style.left = Math.min(e.clientX + 12, innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = (e.clientY + 14) + 'px'; });
+
+  async function refresh() {
+    try { const [latest, daily] = await Promise.all([load('latest.json'), load('daily.json')]); render(latest, daily); }
+    catch { $('headline').textContent = 'Status data is not available right now'; $('subline').textContent = 'Please try again in a few minutes.'; }
+  }
+  refresh(); setInterval(refresh, 120000);
+})();
+</script>
+</body>
+</html>
