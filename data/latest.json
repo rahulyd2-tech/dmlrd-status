@@ -1,6 +1,6 @@
 {
- "checkedAt": "2026-10-08T15:16:19.236Z",
- "run": "https://github.com/rahulyd2-tech/dmlrd-status/actions/runs/37799335657",
+ "checkedAt": "2026-10-08T15:40:10.643Z",
+ "run": "https://github.com/rahulyd2-tech/dmlrd-status/actions/runs/37802632120",
  "statusPage": "https://status.dmlrd.tech",
  "overall": "up",
  "server": {},
@@ -38,8 +38,8 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 860,
-   "certDays": 88,
+   "ms": 985,
+   "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
   },
@@ -52,8 +52,8 @@
    "level": "up",
    "since": "2026-10-06T21:59:21.653Z",
    "status": 200,
-   "ms": 894,
-   "certDays": 88,
+   "ms": 822,
+   "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
   },
@@ -66,8 +66,8 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 878,
-   "certDays": 88,
+   "ms": 845,
+   "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
   },
@@ -80,7 +80,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 937,
+   "ms": 933,
    "certDays": 52,
    "certValidTo": "2026-11-30",
    "problem": null
@@ -94,7 +94,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 966,
+   "ms": 965,
    "certDays": 52,
    "certValidTo": "2026-11-30",
    "problem": null
@@ -108,7 +108,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1004,
+   "ms": 944,
    "certDays": 52,
    "certValidTo": "2026-11-30",
    "problem": null
@@ -122,7 +122,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1023,
+   "ms": 977,
    "certDays": 65,
    "certValidTo": "2026-12-13",
    "problem": null
@@ -136,7 +136,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1050,
+   "ms": 424,
    "certDays": 69,
    "certValidTo": "2026-12-16",
    "problem": null
@@ -150,7 +150,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1062,
+   "ms": 1026,
    "certDays": 76,
    "certValidTo": "2026-12-24",
    "problem": null
@@ -164,8 +164,8 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1155,
-   "certDays": 78,
+   "ms": 1029,
+   "certDays": 77,
    "certValidTo": "2026-12-25",
    "problem": null
   },
@@ -178,7 +178,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 303,
-   "ms": 1164,
+   "ms": 1071,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -192,7 +192,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 302,
-   "ms": 1264,
+   "ms": 1127,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -206,7 +206,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 302,
-   "ms": 1192,
+   "ms": 1120,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -220,7 +220,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 301,
-   "ms": 1311,
+   "ms": 1145,
    "certDays": 70,
    "certValidTo": "2026-12-18",
    "problem": null
@@ -234,7 +234,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1357,
+   "ms": 1167,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -248,7 +248,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1398,
+   "ms": 1210,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -262,7 +262,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1397,
+   "ms": 1204,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -276,7 +276,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 503,
-   "ms": 1444,
+   "ms": 1232,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -290,7 +290,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 403,
-   "ms": 1457,
+   "ms": 1261,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -304,7 +304,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 403,
-   "ms": 1527,
+   "ms": 1243,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
