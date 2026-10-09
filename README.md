@@ -12,7 +12,7 @@ XTREME2 also runs its own, more detailed monitor (every minute, including intern
 ## How it works
 | Piece | What it does |
 |---|---|
-| `sites.json` | The list of public sites and what a healthy answer looks like. Holding pages (RDRCTR) answer 403/503 on purpose and count as working. |
+| `sites.json` | The list of public sites and what a healthy answer looks like. Groups: Websites, RDRCTR, Apps and platforms, and Coming soon (placeholder pages that answer 403/503 on purpose and count as working; shown collapsed). |
 | `check.mjs` | Checks every site (answer, speed, security certificate), retries once, and records the result. No outside packages. |
 | `.github/workflows/health-check.yml` | Runs the check every 5 minutes and commits the results to `data/`. |
 | `.github/workflows/publish-page.yml` | Publishes `site/` to GitHub Pages when the page changes. The page reads live results from `data/`. |
