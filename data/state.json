@@ -139,6 +139,20 @@
    "fails": 0,
    "firstFail": null,
    "issue": null
+  },
+  "ryd-gr-links": {
+   "state": "up",
+   "since": "2026-10-09T03:01:51.447Z",
+   "fails": 0,
+   "firstFail": null,
+   "issue": null
+  },
+  "off-grid-solar": {
+   "state": "up",
+   "since": "2026-10-09T03:01:51.447Z",
+   "fails": 0,
+   "firstFail": null,
+   "issue": null
   }
  },
  "server": {}

@@ -1,6 +1,6 @@
 {
- "checkedAt": "2026-10-09T02:54:23.884Z",
- "run": "https://github.com/rahulyd2-tech/dmlrd-status/actions/runs/37876771298",
+ "checkedAt": "2026-10-09T03:01:51.447Z",
+ "run": "https://github.com/rahulyd2-tech/dmlrd-status/actions/runs/37877363763",
  "statusPage": "https://status.dmlrd.tech",
  "overall": "up",
  "server": {},
@@ -10,12 +10,17 @@
    "name": "Websites"
   },
   {
+   "id": "rdrctr",
+   "name": "RDRCTR (QR codes and short links)"
+  },
+  {
    "id": "platforms",
    "name": "Apps and platforms"
   },
   {
-   "id": "rdrctr",
-   "name": "RDRCTR (not launched yet)"
+   "id": "comingsoon",
+   "name": "Coming soon (placeholder pages)",
+   "quiet": true
   }
  ],
  "servers": {
@@ -38,7 +43,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 809,
+   "ms": 740,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -52,7 +57,7 @@
    "level": "up",
    "since": "2026-10-06T21:59:21.653Z",
    "status": 200,
-   "ms": 778,
+   "ms": 766,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -66,7 +71,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 802,
+   "ms": 811,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -80,7 +85,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 816,
+   "ms": 830,
    "certDays": 51,
    "certValidTo": "2026-11-30",
    "problem": null
@@ -94,7 +99,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 867,
+   "ms": 884,
    "certDays": 51,
    "certValidTo": "2026-11-30",
    "problem": null
@@ -108,7 +113,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 845,
+   "ms": 865,
    "certDays": 51,
    "certValidTo": "2026-11-30",
    "problem": null
@@ -122,7 +127,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 879,
+   "ms": 890,
    "certDays": 65,
    "certValidTo": "2026-12-13",
    "problem": null
@@ -136,9 +141,51 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 454,
+   "ms": 355,
    "certDays": 68,
    "certValidTo": "2026-12-16",
+   "problem": null
+  },
+  {
+   "id": "rdrctr-dashboard",
+   "name": "RDRCTR dashboard",
+   "group": "rdrctr",
+   "host": "xtreme2",
+   "url": "https://rdrctr.dmlrd.tech/healthz",
+   "level": "up",
+   "since": "2026-10-06T18:16:27.230Z",
+   "status": 200,
+   "ms": 901,
+   "certDays": 87,
+   "certValidTo": "2027-01-04",
+   "problem": null
+  },
+  {
+   "id": "ryd-gr-links",
+   "name": "ryd.gr short links and QR scans",
+   "group": "rdrctr",
+   "host": "xtreme2",
+   "url": "https://ryd.gr/readyz",
+   "level": "up",
+   "since": "2026-10-09T03:01:51.447Z",
+   "status": 200,
+   "ms": 1035,
+   "certDays": 87,
+   "certValidTo": "2027-01-04",
+   "problem": null
+  },
+  {
+   "id": "ryd-gr",
+   "name": "ryd.gr home page",
+   "group": "rdrctr",
+   "host": "xtreme2",
+   "url": "https://ryd.gr/",
+   "level": "up",
+   "since": "2026-10-06T18:16:27.230Z",
+   "status": 200,
+   "ms": 1083,
+   "certDays": 87,
+   "certValidTo": "2027-01-04",
    "problem": null
   },
   {
@@ -150,7 +197,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 920,
+   "ms": 1043,
    "certDays": 75,
    "certValidTo": "2026-12-24",
    "problem": null
@@ -164,7 +211,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 928,
+   "ms": 1052,
    "certDays": 77,
    "certValidTo": "2026-12-25",
    "problem": null
@@ -178,7 +225,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 303,
-   "ms": 986,
+   "ms": 1139,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -192,7 +239,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 302,
-   "ms": 1046,
+   "ms": 1065,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -206,7 +253,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 302,
-   "ms": 1006,
+   "ms": 1193,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
@@ -220,7 +267,7 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 301,
-   "ms": 1038,
+   "ms": 1211,
    "certDays": 69,
    "certValidTo": "2026-12-18",
    "problem": null
@@ -234,63 +281,49 @@
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 200,
-   "ms": 1065,
+   "ms": 1182,
    "certDays": 79,
    "certValidTo": "2026-12-27",
    "problem": null
   },
   {
-   "id": "ryd-gr",
-   "name": "ryd.gr",
-   "group": "rdrctr",
+   "id": "off-grid-solar",
+   "name": "Off-grid solar platform",
+   "group": "platforms",
    "host": "xtreme2",
-   "url": "https://ryd.gr/",
+   "url": "https://vidyashenergy.in/myoffgridsolar/",
    "level": "up",
-   "since": "2026-10-06T18:16:27.230Z",
+   "since": "2026-10-09T03:01:51.447Z",
    "status": 200,
-   "ms": 1221,
-   "certDays": 87,
-   "certValidTo": "2027-01-04",
-   "problem": null
-  },
-  {
-   "id": "rdrctr-dashboard",
-   "name": "RDRCTR dashboard",
-   "group": "rdrctr",
-   "host": "xtreme2",
-   "url": "https://rdrctr.dmlrd.tech/",
-   "level": "up",
-   "since": "2026-10-06T18:16:27.230Z",
-   "status": 200,
-   "ms": 1103,
-   "certDays": 87,
-   "certValidTo": "2027-01-04",
+   "ms": 1223,
+   "certDays": 51,
+   "certValidTo": "2026-11-30",
    "problem": null
   },
   {
    "id": "rdrctr-api",
    "name": "RDRCTR API",
-   "group": "rdrctr",
+   "group": "comingsoon",
    "host": "xtreme2",
    "url": "https://api.rdrctr.dmlrd.tech/",
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 503,
-   "ms": 1135,
+   "ms": 1244,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
   },
   {
    "id": "cdn-ryd-gr",
-   "name": "cdn.ryd.gr",
-   "group": "rdrctr",
+   "name": "RDRCTR public files (cdn.ryd.gr)",
+   "group": "comingsoon",
    "host": "xtreme2",
    "url": "https://cdn.ryd.gr/",
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 403,
-   "ms": 1154,
+   "ms": 1439,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
@@ -298,13 +331,13 @@
   {
    "id": "rdrctr-cdn",
    "name": "RDRCTR private files",
-   "group": "rdrctr",
+   "group": "comingsoon",
    "host": "xtreme2",
    "url": "https://cdn.rdrctr.dmlrd.tech/",
    "level": "up",
    "since": "2026-10-06T18:16:27.230Z",
    "status": 403,
-   "ms": 1197,
+   "ms": 1263,
    "certDays": 87,
    "certValidTo": "2027-01-04",
    "problem": null
