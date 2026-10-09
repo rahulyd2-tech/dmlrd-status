@@ -71,8 +71,8 @@
    "issue": null
   },
   "aoa-site-admin": {
-   "state": "up",
-   "since": "2026-10-06T18:16:27.230Z",
+   "state": "warn",
+   "since": "2026-10-09T08:24:56.472Z",
    "fails": 0,
    "firstFail": null,
    "issue": null
