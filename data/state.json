@@ -122,7 +122,7 @@
   "rdrctr-api": {
    "state": "down",
    "since": "2026-10-10T02:21:12.886Z",
-   "fails": 18,
+   "fails": 19,
    "firstFail": "2026-10-10T02:21:12.886Z",
    "issue": 2
   },
