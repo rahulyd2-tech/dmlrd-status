@@ -122,8 +122,8 @@
   "rdrctr-api": {
    "state": "up",
    "since": "2026-10-06T18:16:27.230Z",
-   "fails": 0,
-   "firstFail": null,
+   "fails": 1,
+   "firstFail": "2026-10-10T02:21:12.886Z",
    "issue": null
   },
   "cdn-ryd-gr": {
