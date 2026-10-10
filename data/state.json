@@ -122,7 +122,7 @@
   "rdrctr-api": {
    "state": "down",
    "since": "2026-10-10T02:21:12.886Z",
-   "fails": 25,
+   "fails": 26,
    "firstFail": "2026-10-10T02:21:12.886Z",
    "issue": 2
   },
@@ -150,6 +150,13 @@
   "off-grid-solar": {
    "state": "up",
    "since": "2026-10-09T03:01:51.447Z",
+   "fails": 0,
+   "firstFail": null,
+   "issue": null
+  },
+  "dmlrdmotorsports-in": {
+   "state": "up",
+   "since": "2026-10-10T10:29:24.357Z",
    "fails": 0,
    "firstFail": null,
    "issue": null
