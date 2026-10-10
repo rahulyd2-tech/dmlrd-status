@@ -116,6 +116,18 @@
                                   }
                    },
                    {
+                       "id":  "dmlrdmotorsports-in",
+                       "name":  "dmlrdmotorsports.in",
+                       "url":  "https://dmlrdmotorsports.in/",
+                       "group":  "websites",
+                       "host":  "xtreme2",
+                       "expect":  {
+                                      "status":  [
+                                                     200
+                                                 ]
+                                  }
+                   },
+                   {
                        "id":  "ageofaquariusdevelopers-in",
                        "name":  "ageofaquariusdevelopers.in",
                        "url":  "https://ageofaquariusdevelopers.in/",
