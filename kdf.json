@@ -1,0 +1,14 @@
+{
+ "v": 1,
+ "version": 1,
+ "kdf": "PBKDF2-SHA256",
+ "iterations": 600000,
+ "salt": "HJl7H3Wvz/JR/rtO7aDoSA==",
+ "wrapped": {
+  "v": 1,
+  "alg": "A256GCM",
+  "iv": "/zplGBfO+MBKMVFw",
+  "ct": "nxTf0wTI8uNS8Zl955N6qJ05pnioaKihZkgHNz7g835aJBvYYNqRUe/ddsYcnr+c"
+ },
+ "updated": "2026-10-11T09:50:09.671Z"
+}
