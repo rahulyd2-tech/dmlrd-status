@@ -2,7 +2,7 @@
 
 Status page for DMLRD Group services: **https://status.dmlrd.tech** (sign-in required).
 
-Change records: **CR-2026-0024** (monitoring), **CR-2026-0027** (sign-in, encrypted data). Group SDLC ledger: `rahulyd2-tech/doomwatcher` -> `docs/sdlc/`.
+Change records: **CR-2026-0024** (monitoring), **CR-2026-0027** (sign-in, encrypted data). SDLC records: the private repo `rahulyd2-tech/dmlrd-monitor` (`docs/sdlc/`, project `monitoring`), anchored in the group's central ledger; until 23 Nov 2026 they were kept in `rahulyd2-tech/doomwatcher`.
 
 ## Why it runs here
 The checks and the page run on GitHub, outside our network, so they keep working when our main server is down. This repo is public because that is what makes GitHub Pages and frequent scheduled checks free. Nothing readable about our services is published:
